@@ -1,11 +1,24 @@
-function item(){
-    var items=document.getElementsByName("add-list");
-    var list=document.getElementsByClassName("list");
-   
-    const values=items.value;
+var input=document.getElementById("add-list");
+var todo=document.getElementById("list");
+var button=document.getElementById("add-button");
+
+button.addEventListener('click',()=>{
+    item(input.value)
+    input.value=''
+})
+
+function item(values){
+    let lists=document.createElement('p')
+    let btn=document.createElement('button')
     if(values!="" || values!=null){
-        var li=document.createElement('li');
-        li.textContent=values;
-        list.appendChild(values);
+        btn.textContent="delete"
+        let span=document.createElement('span')
+        span.textContent=values
+        lists.appendChild(span)
+        lists.appendChild(btn)
+        todo.appendChild(lists)
     }
+    btn.addEventListener('click',()=>{
+        todo.removeChild(lists)   
+    })
 }
