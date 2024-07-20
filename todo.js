@@ -10,7 +10,11 @@ button.addEventListener('click',()=>{
 function item(values){
     let lists=document.createElement('p')
     let btn=document.createElement('button')
-    if(values!="" || values!=null){
+    if(values=="" || values==null){
+        alert("Enter an item")
+        return false;
+    }
+    else{
         btn.textContent="delete"
         let span=document.createElement('span')
         span.textContent=values
